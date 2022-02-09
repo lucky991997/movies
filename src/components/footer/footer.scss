@@ -1,7 +1,7 @@
 @use "../../scss/" as *;
 
 .footer {
-
+  overflow-x: hidden;
   background-image: url("../../assets/images/footer-bg.jpg");
   position: relative;
   padding: 6rem 2rem;

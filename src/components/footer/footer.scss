@@ -1,0 +1,106 @@
+@use "../../scss/" as *;
+
+.footer {
+
+  background-image: url("../../assets/images/footer-bg.jpg");
+  position: relative;
+  padding: 6rem 2rem;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__content {
+    min-width: 1000px;
+
+    &__logo {
+      @include flex(center, center);
+      margin-bottom: 3rem;
+    }
+
+    &__menus {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      @include flex(flex-start, center);
+      & > * ~ * {
+        margin-left: 10rem;
+      }
+
+      @include mobile {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &__menu {
+      @include flex(flex-start, flex-start);
+     
+      flex-direction: column;
+      margin-top: 1rem;
+
+      font-size: 1.5rem;
+      font-weight: 600;
+
+      & > * ~ * {
+        margin-top: 1rem;
+      }
+      &__text {
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          color: $white;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          transition: width 0.5s ease;
+          height: 2px;
+          background-color: $main-color;
+        }
+
+        &:hover::after {
+          width: 100%;
+          color: rgb(183, 247, 7) !important;
+        }
+      }
+    }
+
+    @include mobile {
+      @include flex(flex-start, flex-start);
+      &__logo {
+        position: relative;
+        top: -4rem;
+      }
+
+      &__menus {
+
+        position: absolute;
+        @include flex(flex-start, space-between);
+        // display: grid;
+        // grid-template-rows: repeat(1, 1fr);
+
+        & > * {
+          margin-left: 0;
+        }
+        & > * ~ * ~* {
+            margin-bottom: 3rem;
+        }
+      }
+      &__menu {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        position: relative;
+
+        &::after{
+            content: '';
+            position: absolute;
+            width: 5rem;
+            height: 100%;
+            right: 6px;
+        }
+        
+       
+      }
+    }
+  }
+}

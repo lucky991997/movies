@@ -33,7 +33,7 @@ const Detail = () => {
             className="banner"
             style={{
               backgroundImage: `url(${apiConfig.originalImage(
-                items.backdrop_path || items.poster_path
+                items.backdrop_path ? items.backdrop_path : items.poster_path
               )})`,
             }}
           ></div>
@@ -43,7 +43,7 @@ const Detail = () => {
                 className="movie-content__poster__img"
                 style={{
                   backgroundImage: `url(${apiConfig.originalImage(
-                    items.backdrop_path || items.poster_path
+                    items.backdrop_path ? items.backdrop_path : items.poster_path
                   )})`,
                 }}
               ></div>
